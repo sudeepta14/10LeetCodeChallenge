@@ -1,0 +1,21 @@
+class Solution:
+    def splitListToParts(self, root, k):
+        """
+        :type root: ListNode
+        :type k: int
+        :rtype: List[ListNode]"""
+        num, curr = 0, root
+        while curr is not None:
+            num += 1
+            curr = curr.next
+        prev, curr = None, root
+        res = []
+        for i in range(k):
+            sub_len = num/k + 1 if i < num%k else num/k
+            res.append(curr)
+            for j in range(int(sub_len)):
+                prev = curr
+                curr = curr.next
+            if prev is not None:
+                prev.next = None
+        return res
