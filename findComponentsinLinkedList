@@ -1,0 +1,18 @@
+class Solution:
+    def numComponents(self, head, G):
+        """
+        :type head: ListNode
+        :type G: List[int]
+        :rtype: int
+        """
+        set_g = set(G)
+        count = 0
+        while(head):
+            if head.val in set_g:
+                count += 1
+                head = head.next
+                while(head and head.val in set_g):
+                    head = head.next
+            else:
+                head = head.next
+        return count
