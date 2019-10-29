@@ -1,0 +1,50 @@
+class Solution {
+    public boolean backspaceCompare(String S, String T) {
+        StringBuilder a = new StringBuilder();
+        StringBuilder b = new StringBuilder();
+        
+        for(char c: S.toCharArray()){
+            if(c != '#'){
+                a.append(c);
+            }else{
+                int length = a.length();
+                if(length >= 1){
+                    a.deleteCharAt(length-1);
+                }
+            }
+        }
+        
+        for(char x:T.toCharArray()){
+            if(x != '#'){
+                b.append(x);
+            }else{
+                int length = b.length();
+                if(length >= 1){
+                    b.deleteCharAt(length-1);
+                }
+            }
+        }
+        return a.toString().equals(b.toString());
+    }
+}
+
+Time Complexity : O(N)
+Space Complexity : O(N)
+
+
+class Solution {
+    public boolean backspaceCompare(String S, String T) {
+       return build(S).equals(build(T));
+    }
+    public String build(String S){
+        Stack<Character> stack = new Stack<>();
+        for(char c: S.toCharArray()){
+            if(c != '#'){
+                stack.push(c);
+            }else if(!stack.isEmpty()){
+                stack.pop();
+            }
+        }
+        return String.valueOf(stack);
+    }
+}
