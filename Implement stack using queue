@@ -33,6 +33,9 @@ class MyStack {
     }
 }
 
+Time Complexity : O(N) for push and rest is O(1)
+
+
 /**
  * Your MyStack object will be instantiated and called as such:
  * MyStack obj = new MyStack();
