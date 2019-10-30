@@ -1,0 +1,18 @@
+class Solution {
+    public int minAddToMakeValid(String S) {
+        int ans = 0, bal = 0;
+        for(char c: S.toCharArray()){
+            if(c == '(') {
+                bal += 1; 
+            }
+            else{ 
+                bal-= 1;
+            }
+            if(bal == -1 ){
+                bal++;
+                ans++;
+            }
+        }
+        return bal + ans;
+    }
+}
