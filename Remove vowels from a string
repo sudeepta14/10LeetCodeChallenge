@@ -1,0 +1,15 @@
+class Solution {
+    public String removeVowels(String S) {
+        StringBuilder builder = new StringBuilder();
+        String vowels = "aeiou";
+        for (int i = 0; i < S.length(); i++) {
+            char c = S.charAt(i);
+            if (vowels.indexOf(c) == -1) {
+                builder.append(c);
+            }
+        }
+        return  builder.toString();
+    }
+}
+
+// This code is brillant and very very simple. Good job whoever wrote it.
